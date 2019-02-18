@@ -1,0 +1,24 @@
+.fileselect {
+    background: #001529;
+    outline: 0;
+    padding: 2rem;
+    color: white;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.fileselect h1 {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
+.fileselect p {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+}
+
+.smallerfont {
+    font-size: .8rem !important;
+}

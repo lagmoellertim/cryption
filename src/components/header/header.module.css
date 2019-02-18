@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .brand h1 {
+    color: white;
+    font-family: Montserrat;
+}
+
+.header .github a {
+    color: white;
+    font-size: 2rem;
+}
