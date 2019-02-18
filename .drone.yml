@@ -6,7 +6,7 @@ steps:
   image: node
   commands:
     - npm install
-    - npm build
+    - npm run-script build
     - cp build /drone/src
 - name: publish  
   image: plugins/gh-pages
