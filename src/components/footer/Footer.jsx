@@ -8,7 +8,7 @@ const Footer = () => {
 			<div className={FooterCSS.footerContainer}>
 				<p>
 					Made with <Icon type="heart" theme="filled" /> by{' '}
-					<a href="https://lagmoellertim.de">Tim-Luca Lagmöller</a>
+					<a href="https://en.lagmoellertim.de">Tim-Luca Lagmöller</a>
 				</p>
 				<a href="http://donate.lagmoellertim.de">Donate</a>
 			</div>

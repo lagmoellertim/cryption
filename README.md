@@ -95,6 +95,6 @@ You can also contribute by [buying me a coffee](http://donate.lagmoellertim.de).
 
 [MIT License](https://github.com/lagmoellertim/cryption/blob/master/LICENSE)
 
-Copyright © 2019-present, [Tim-Luca Lagmöller](https://lagmoellertim.de)
+Copyright © 2019-present, [Tim-Luca Lagmöller](https://en.lagmoellertim.de)
 
 ## Have fun :tada:
