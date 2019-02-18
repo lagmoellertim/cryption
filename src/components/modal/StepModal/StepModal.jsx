@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Modal, Steps, Icon } from 'antd';
 import { connect } from 'react-redux';
 import { mapState, mapDispatch } from './StepModal.map';

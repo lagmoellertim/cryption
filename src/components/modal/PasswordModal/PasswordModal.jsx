@@ -13,8 +13,8 @@ const PasswordModalForm = Form.create({ name: 'form_in_modal' })(
 			return (
 				<Modal
 					visible={visible}
-					title={mode != 'decrypt' ? 'Encryption' : 'Decryption'}
-					okText={mode != 'decrypt' ? 'Encrypt' : 'Decrypt'}
+					title={mode !== 'decrypt' ? 'Encryption' : 'Decryption'}
+					okText={mode !== 'decrypt' ? 'Encrypt' : 'Decrypt'}
 					onCancel={onCancel}
 					onOk={onCreate}
 				>
@@ -24,7 +24,7 @@ const PasswordModalForm = Form.create({ name: 'form_in_modal' })(
 								rules: [ { required: true, message: 'Please input your Password!' } ]
 							})(<Input.Password placeholder="Input Password" />)}
 						</Form.Item>
-						{hint != null || mode != 'decrypt' ? (
+						{hint !== null || mode !== 'decrypt' ? (
 							<Form.Item label="Hint">
 								{mode != 'decrypt' ? (
 									getFieldDecorator('hint', {

@@ -25,7 +25,7 @@ const FileSelect = (props) => {
 							<Icon type="inbox" />
 						</h1>
 						<p className="ant-upload-text">Click or drag file to this area to upload</p>
-						<p className={FileSelectCSS.smallerfont + ' ' + 'ant-upload-hint'}>
+						<p className={FileSelectCSS.smallerfont + ' ant-upload-hint'}>
 							Support for a single or bulk upload.
 						</p>
 					</div>

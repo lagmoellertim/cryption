@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import bodyCSS from './body.module.css';
 import Container from './container/Container';
 

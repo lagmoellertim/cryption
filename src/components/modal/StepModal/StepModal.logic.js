@@ -5,8 +5,8 @@ import {
 } from 'antd'
 export const initialize = (props) => {
     var steps = []
-    if (props.files.mode != "decrypt") {
-        if (props.files.mode == "encrypt-multiple") {
+    if (props.files.mode !== "decrypt") {
+        if (props.files.mode === "encrypt-multiple") {
             steps = ["Combine Files to ZIP"]
         } else {
             steps = ["Transform File"]
@@ -42,7 +42,7 @@ export const initialize = (props) => {
     });
 
 
-    if (props.files.mode == "encrypt-multiple") {
+    if (props.files.mode === "encrypt-multiple") {
         worker.combineToZip(props.files.fileList).then((data) => {
             props.nextStep()
             worker.encrypt(data, "package.zip", props.files.password, props.files.hint).then((obj) => {
@@ -54,7 +54,7 @@ export const initialize = (props) => {
                 FileSaver.saveAs(obj.file, obj.name)
             })
         })
-    } else if (props.files.mode == "encrypt") {
+    } else if (props.files.mode === "encrypt") {
         worker.fileToData(props.files.fileList[0]).then((data) => {
             props.nextStep()
             worker.encrypt(data, props.files.fileList[0].name, props.files.password, props.files.hint).then((obj) => {
