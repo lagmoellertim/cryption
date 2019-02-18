@@ -1,14 +1,18 @@
 .container {
     background: white;
-    width: 550px;
+    max-width: 600px;
     padding: 3rem;
     border-radius: .5rem;
+    margin: 20px 0;
     font-family: Montserrat;
 }
 
 @media(max-width: 768px) {
     .container {
         background: white;
+        margin: 20px 0;
+        padding: 1.5rem;
+
         width: calc(100% - 10vh);
     }
 }

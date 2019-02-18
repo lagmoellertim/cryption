@@ -1,6 +1,7 @@
 .header {
     display: flex;
     justify-content: space-between;
+    flex: none;
 }
 
 .header .brand h1 {

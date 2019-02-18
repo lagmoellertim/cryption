@@ -1,0 +1,25 @@
+.footerContainer {
+    display: flex;
+    flex: none;
+    justify-content: space-between;
+}
+
+.footerContainer p {
+    margin: 0;
+}
+
+.footerContainer p i {
+    color: #f50000;
+}
+
+.footerContainer a {
+    color: black;
+}
+
+.footerContainer p a {
+    font-weight: bold;
+}
+
+.footerContainer a:hover {
+    color: rgb(211, 0, 0);
+}

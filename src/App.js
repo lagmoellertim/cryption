@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './store/reducer';
 import devToolsEnhancer from 'remote-redux-devtools';
+import Footer from './components/footer/Footer';
 
 class App extends Component {
 	constructor() {
@@ -20,6 +21,7 @@ class App extends Component {
 				<Layout className={AppCSS.layout}>
 					<Header />
 					<Body />
+					<Footer />
 				</Layout>
 			</Provider>
 		);
