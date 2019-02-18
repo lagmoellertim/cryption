@@ -15,9 +15,9 @@
 
 ## Introduction
 
-Cryption is an **open-source tool** who that **encrypts and decrypts** your data in the browser.
+Cryption is an **open-source tool** that **encrypts and decrypts** your data in the browser.
 
-It does **not** upload anything to a **cloud**.
+It does **not** upload data to any **cloud**.
 
 It checks the **file integrity**, making it **impossible to manipulate data** without the correct password.
 
