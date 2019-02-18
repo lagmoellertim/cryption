@@ -79,6 +79,5 @@ function base64ArrayBuffer(arrayBuffer) {
 
 export {
     base64ArrayBuffer,
-    base64ToArrayBuffer,
     b64toBlob
 }
