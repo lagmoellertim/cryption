@@ -14,7 +14,7 @@ const StepModal = (props) => {
 		}
 	});
 	return (
-		<Modal title="Basic Modal" visible={show} footer={null} closable={false}>
+		<Modal title="Please wait" visible={show} footer={null} closable={false}>
 			<Steps direction="vertical" current={currentStep}>
 				{steps.map((step) => {
 					const index = steps.indexOf(step);
