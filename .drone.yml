@@ -7,7 +7,9 @@ steps:
   commands:
     - npm install
     - npm run-script build
-- name: publish  
+    - mkdir build-zip
+    - zip -r build-zip/build.zip build/*
+- name: publish-page
   image: plugins/gh-pages
   settings:
     username:
@@ -15,3 +17,11 @@ steps:
     password:
       from_secret: github_password
     pages_directory: build/
+- name: publish-release
+  image: plugins/github-release
+  settings:
+    api_key: 
+      from_secret: github_token
+    files: build-zip/build.zip
+  when:
+    event: tag
