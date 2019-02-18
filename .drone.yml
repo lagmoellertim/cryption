@@ -7,8 +7,6 @@ steps:
   commands:
     - npm install
     - npm build
-    - mkdir /drone
-    - mkdir /drone/src
     - cp build /drone/src
 - name: publish  
   image: plugins/gh-pages
