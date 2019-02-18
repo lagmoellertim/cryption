@@ -1,6 +1,6 @@
 <h1 align="center">Cryption</h1>
 
-*<p align="center">In-Browser RSA File Encryption with Data Integrity Check</p>*
+*<p align="center">In-Browser AES File Encryption with Data Integrity Check</p>*
 
 <p align="center">
   <a href="https://github.com/lagmoellertim/cryption/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat"/></a>
@@ -29,7 +29,12 @@ If you want to,  you could download Cryption and use it fully functional **offli
 
 ![](screen.gif)
 
-## Getting Started
+### Usage Information
+
+To use Cryption as it was intentioned, I advice you to use **Firefox**. Both Chrome and Safari will crash when files get big (>25 MB), while Firefox managed to encrypt and decrypt files larger then 100 MB. It was also the fastest, but nonetheless, every browser **should** work
+
+If you want to upload a directory, consider **zipping** it before uploading, since JavaScript cannot handle directory uploads. You can, however, upload multiple files, which Cryption then **bundles** to a zip-archive automatically.
+
 
 ### Prerequisites
 
@@ -67,6 +72,12 @@ npm install
 # Build the app 
 npm run-script build
 ```
+
+### Use on local machine without internet
+
+Download the latest build.zip file from the [Cryption releases](https://github.com/lagmoellertim/cryption/releases/latest).
+
+After unzipping it, you can just open the index.html file with your browser, no need to put it on a server!
 
 ## Contributing
 
