@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://lagmoellertim.github.io/cryption">Website</a>
+  <a href="https://cryption.pw">Website</a>
 </p>
 
 ---
@@ -78,12 +78,12 @@ If you are missing a feature or have new idea, go for it! That is what open-sour
 
 ## Donate
 
-You can also contribute by [buying me a coffee](https://www.paypal.me/lagmoellertim).
+You can also contribute by [buying me a coffee](http://donate.lagmoellertim.de).
 
 ## License
 
 [MIT License](https://github.com/lagmoellertim/cryption/blob/master/LICENSE)
 
-Copyright © 2019-present, Tim-Luca Lagmöller <mail@lagmoellertim.de>
+Copyright © 2019-present, [Tim-Luca Lagmöller](https://lagmoellertim.de)
 
 ## Have fun :tada:
