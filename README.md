@@ -3,7 +3,7 @@
 *<p align="center">In-Browser RSA File Encryption with Data Integrity Check</p>*
 
 <p align="center">
-  <a href="https://github.com/lagmoellertim/cryption/blob/develop/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat"/></a>
+  <a href="https://github.com/lagmoellertim/cryption/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat"/></a>
   <a href="https://cloud.drone.io/lagmoellertim/cryption"><img src="https://cloud.drone.io/api/badges/lagmoellertim/cryption/status.svg"/></a>
 </p>
 
