@@ -26,7 +26,7 @@ const PasswordModalForm = Form.create({ name: 'form_in_modal' })(
 						</Form.Item>
 						{hint !== null || mode !== 'decrypt' ? (
 							<Form.Item label="Hint">
-								{mode != 'decrypt' ? (
+								{mode !== 'decrypt' ? (
 									getFieldDecorator('hint', {
 										rules: [ { required: false } ]
 									})(
