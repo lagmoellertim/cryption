@@ -82,7 +82,7 @@ You can also contribute by [buying me a coffee](https://www.paypal.me/lagmoeller
 
 ## License
 
-[MIT License](https://github.com/lagmoellertim/cryption/blob/develop/LICENSE.md)
+[MIT License](https://github.com/lagmoellertim/cryption/blob/master/LICENSE)
 
 Copyright © 2019-present, Tim-Luca Lagmöller <mail@lagmoellertim.de>
 
