@@ -28,15 +28,15 @@ class App extends Component {
 					<MetaTags>
 						<meta
 							httpEquiv="Content-Security-Policy"
-							content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; style-src https://fonts.googleapis.com 'unsafe-inline'; img-src 'self'; media-src 'none'; frame-src 'none'; font-src https://fonts.gstatic.com; connect-src 'none'"
+							content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; style-src https://fonts.googleapis.com https://cryption.pw 'unsafe-inline'; img-src 'self'; media-src 'none'; frame-src 'none'; font-src https://fonts.gstatic.com; connect-src 'none'"
 						/>
 						<meta
 							httpEquiv="X-Content-Security-Policy"
-							content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; style-src https://fonts.googleapis.com 'unsafe-inline'; img-src 'self'; media-src 'none'; frame-src 'none'; font-src https://fonts.gstatic.com; connect-src 'none'"
+							content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; style-src https://fonts.googleapis.com https://cryption.pw 'unsafe-inline'; img-src 'self'; media-src 'none'; frame-src 'none'; font-src https://fonts.gstatic.com; connect-src 'none'"
 						/>
 						<meta
 							httpEquiv="X-WebKit-CSP"
-							content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; style-src https://fonts.googleapis.com 'unsafe-inline'; img-src 'self'; media-src 'none'; frame-src 'none'; font-src https://fonts.gstatic.com; connect-src 'none'"
+							content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; style-src https://fonts.googleapis.com https://cryption.pw 'unsafe-inline'; img-src 'self'; media-src 'none'; frame-src 'none'; font-src https://fonts.gstatic.com; connect-src 'none'"
 						/>
 					</MetaTags>
 				)}
