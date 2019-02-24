@@ -5,6 +5,7 @@
 <p align="center">
   <a href="https://github.com/lagmoellertim/cryption/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat"/></a>
   <a href="https://cloud.drone.io/lagmoellertim/cryption"><img src="https://cloud.drone.io/api/badges/lagmoellertim/cryption/status.svg"/></a>
+  <a href="https://app.codacy.com/app/lagmoellertim/cryption?utm_source=github.com&utm_medium=referral&utm_content=lagmoellertim/cryption&utm_campaign=Badge_Grade_Dashboard"><img src="https://api.codacy.com/project/badge/Grade/b674afd5204e48a7b1e39d47728c8a3d"/></a>
 </p>
 
 <p align="center">
