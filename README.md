@@ -13,6 +13,8 @@
 
 ---
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b674afd5204e48a7b1e39d47728c8a3d)](https://app.codacy.com/app/lagmoellertim/cryption?utm_source=github.com&utm_medium=referral&utm_content=lagmoellertim/cryption&utm_campaign=Badge_Grade_Dashboard)
+
 ## Introduction
 
 Cryption is an **open-source tool** that **encrypts and decrypts** your data in the browser.
