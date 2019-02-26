@@ -2,31 +2,34 @@ kind: pipeline
 name: default
 
 steps:
-- name: build
-  image: node
-  commands:
-    - npm install
-    - npm run-script build
-- name: zip-buid
-  image: kramos/alpine-zip
-  commands:
-    - mkdir build-zip
-    - zip -r build-zip/build.zip build/*
-  when:
-    event: tag
-- name: publish-page
-  image: plugins/gh-pages
-  settings:
-    username:
-      from_secret: github_username
-    password:
-      from_secret: github_password
-    pages_directory: build/
-- name: publish-release
-  image: plugins/github-release
-  settings:
-    api_key: 
-      from_secret: github_token
-    files: build-zip/build.zip
-  when:
-    event: tag
+  - name: build
+    image: node
+    commands:
+      - npm install
+      - npm run-script build
+  - name: zip-buid
+    image: kramos/alpine-zip
+    commands:
+      - mkdir build-zip
+      - zip -r build-zip/build.zip build/*
+    when:
+      event: tag
+  - name: publish-page
+    image: plugins/gh-pages
+    settings:
+      username:
+        from_secret: github_username
+      password:
+        from_secret: github_password
+      pages_directory: build/
+    when:
+      branch:
+        - master
+  - name: publish-release
+    image: plugins/github-release
+    settings:
+      api_key:
+        from_secret: github_token
+      files: build-zip/build.zip
+    when:
+      event: tag
