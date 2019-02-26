@@ -6,7 +6,7 @@ export const mapDispatch = (dispatch) => {
     return {
         onFilesAdded(fileList, mode, hint) {
             dispatch({
-                type: 'ADD_FILES',
+                type: "ADD_FILES",
                 payload: {
                     fileList,
                     mode,
@@ -15,4 +15,4 @@ export const mapDispatch = (dispatch) => {
             });
         }
     };
-}
+};

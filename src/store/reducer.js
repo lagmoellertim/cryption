@@ -27,10 +27,10 @@ export default (state = initialState, {
     payload
 }) => {
     switch (type) {
-        case 'RESET':
-            return initialState
+        case "RESET":
+            return initialState;
 
-        case 'ADD_FILES':
+        case "ADD_FILES":
             return {
                 ...state,
                 files: {
@@ -42,9 +42,9 @@ export default (state = initialState, {
                 passwordModal: {
                     show: true
                 }
-            }
+            };
 
-        case 'ADD_FORM_DATA':
+        case "ADD_FORM_DATA":
             return {
                 ...state,
                 files: {
@@ -59,44 +59,44 @@ export default (state = initialState, {
                     ...state.stepModal,
                     show: true
                 }
-            }
+            };
 
-        case 'SET_STEPS':
+        case "SET_STEPS":
             return {
                 ...state,
                 stepModal: {
                     ...state.stepModal,
                     steps: payload.steps
                 }
-            }
+            };
 
-        case 'INCREMENT_STEP':
+        case "INCREMENT_STEP":
             return {
                 ...state,
                 stepModal: {
                     ...state.stepModal,
                     currentStep: state.stepModal.currentStep + 1
                 }
-            }
+            };
 
-        case 'PROCESS_ACTIVE':
+        case "PROCESS_ACTIVE":
             return {
                 ...state,
                 process: {
                     active: payload.active
                 }
-            }
+            };
 
-        case 'PROCESS_FINISHED':
+        case "PROCESS_FINISHED":
             return {
                 ...initialState,
                 process: {
                     active: false,
                     status: payload.status
                 }
-            }
+            };
 
         default:
-            return state
-    }
-}
+            return state;
+    };
+};

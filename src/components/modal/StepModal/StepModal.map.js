@@ -4,13 +4,13 @@ export const mapState = (state) => {
         files: state.files,
         process: state.process
     };
-}
+};
 
 export const mapDispatch = (dispatch) => {
     return {
         setSteps(steps) {
             dispatch({
-                type: 'SET_STEPS',
+                type: "SET_STEPS",
                 payload: {
                     steps
                 }
@@ -18,13 +18,13 @@ export const mapDispatch = (dispatch) => {
         },
         nextStep() {
             dispatch({
-                type: 'INCREMENT_STEP',
+                type: "INCREMENT_STEP",
                 payload: {}
             });
         },
         isProcessActive(active) {
             dispatch({
-                type: 'PROCESS_ACTIVE',
+                type: "PROCESS_ACTIVE",
                 payload: {
                     active
                 }
@@ -32,7 +32,7 @@ export const mapDispatch = (dispatch) => {
         },
         processFinished(status) {
             dispatch({
-                type: 'PROCESS_FINISHED',
+                type: "PROCESS_FINISHED",
                 payload: {
                     status
                 }
@@ -40,9 +40,9 @@ export const mapDispatch = (dispatch) => {
         },
         reset() {
             dispatch({
-                type: 'RESET',
+                type: "RESET",
                 payload: {}
             });
         },
     };
-}
+};

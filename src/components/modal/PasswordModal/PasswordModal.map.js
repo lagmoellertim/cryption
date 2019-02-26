@@ -10,13 +10,13 @@ export const mapDispatch = (dispatch) => {
     return {
         onReset() {
             dispatch({
-                type: 'RESET',
+                type: "RESET",
                 payload: {}
             });
         },
         updateFileInfo(password, hint) {
             dispatch({
-                type: 'ADD_FORM_DATA',
+                type: "ADD_FORM_DATA",
                 payload: {
                     password,
                     hint
@@ -24,4 +24,4 @@ export const mapDispatch = (dispatch) => {
             });
         }
     };
-}
+};

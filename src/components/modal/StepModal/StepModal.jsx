@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { Modal, Steps, Icon } from 'antd';
-import { connect } from 'react-redux';
-import { mapState, mapDispatch } from './StepModal.map';
-import * as StepModalLogic from './StepModal.logic';
+import React, { useEffect } from "react";
+import { Modal, Steps, Icon } from "antd";
+import { connect } from "react-redux";
+import { mapState, mapDispatch } from "./StepModal.map";
+import * as StepModalLogic from "./StepModal.logic";
 const Step = Steps.Step;
 
 const StepModal = (props) => {

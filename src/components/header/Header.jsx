@@ -1,6 +1,6 @@
-import React from 'react';
-import { Layout, Icon } from 'antd';
-import headerCSS from './header.module.css';
+import React from "react";
+import { Layout, Icon } from "antd";
+import headerCSS from "./header.module.css";
 
 const Header = (props) => {
 	return (

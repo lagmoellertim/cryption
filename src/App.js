@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import { Layout } from 'antd';
-import 'antd/dist/antd.css';
-import Header from './components/header/Header';
-import Body from './components/body/Body';
-import AppCSS from './App.module.css';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './store/reducer';
-import devToolsEnhancer from 'remote-redux-devtools';
-import Footer from './components/footer/Footer';
-import MetaTags from 'react-meta-tags';
+import React, { Component } from "react";
+import { Layout } from "antd";
+import "antd/dist/antd.css";
+import Header from "./components/header/Header";
+import Body from "./components/body/Body";
+import AppCSS from "./App.module.css";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "./store/reducer";
+import devToolsEnhancer from "remote-redux-devtools";
+import Footer from "./components/footer/Footer";
+import MetaTags from "react-meta-tags";
 
 class App extends Component {
 	constructor() {
 		super();
-		this.developmentMode = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+		this.developmentMode = !process.env.NODE_ENV || process.env.NODE_ENV === "development";
 		if (this.developmentMode) {
 			this.store = createStore(reducer, devToolsEnhancer());
 		} else {

@@ -1,14 +1,14 @@
-import JSZip from 'jszip';
-import CryptoJS from 'crypto-js'
-import fileToArrayBuffer from 'file-to-array-buffer'
+import JSZip from "jszip";
+import CryptoJS from "crypto-js"
+import fileToArrayBuffer from "file-to-array-buffer"
 import {
     b64toBlob,
     base64ArrayBuffer
-} from './utils'
+} from "./utils"
 
 
 function incrementProgress() {
-    postMessage('incrementProgress')
+    postMessage("incrementProgress")
 }
 
 
@@ -54,8 +54,8 @@ export const checkCrypt = async (file) => {
         var zip = await JSZip.loadAsync(file)
         if (".meta" in zip.files) {
             var content = JSON.parse(await zip.file(".meta").async("string"));
-            if ('crypt' in content) {
-                if (content['crypt'] == true) {
+            if ("crypt" in content) {
+                if (content["crypt"] == true) {
                     return true
                 }
             }
