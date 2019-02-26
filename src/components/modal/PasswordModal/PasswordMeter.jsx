@@ -31,12 +31,12 @@ export default ({ value }) => {
     const mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
     const enoughRegex = new RegExp("(?=.{6,}).*", "g");
 
-    if(strongRegex.test(value) === true) return STATUS.STRONG
-    if(mediumRegex.test(value) === true) return STATUS.MEDIUM
-    if(enoughRegex.test(value) === true) return STATUS.ENOUGH
+    if(strongRegex.test(value) === true) return STATUS.STRONG;
+    if(mediumRegex.test(value) === true) return STATUS.MEDIUM;
+    if(enoughRegex.test(value) === true) return STATUS.ENOUGH;
 
     return STATUS.WEAK;
-  }
+  };
 
   let checkForce = value => {
     switch(checkScore(value)){
