@@ -62,13 +62,11 @@ export default (state = initialState, {
             }
 
         case 'SET_STEPS':
-            {
-                return {
-                    ...state,
-                    stepModal: {
-                        ...state.stepModal,
-                        steps: payload.steps
-                    }
+            return {
+                ...state,
+                stepModal: {
+                    ...state.stepModal,
+                    steps: payload.steps
                 }
             }
 
