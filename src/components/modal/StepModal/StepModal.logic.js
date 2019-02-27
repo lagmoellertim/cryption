@@ -93,5 +93,5 @@ export const initialize = (props) => {
                 };
             };
         });
-    };
+    }
 };

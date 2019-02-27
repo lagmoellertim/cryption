@@ -20,7 +20,7 @@ const initialState = {
         active: false,
         status: ""
     }
-}
+};
 
 export default (state = initialState, {
     type,
@@ -98,5 +98,5 @@ export default (state = initialState, {
 
         default:
             return state;
-    };
+    }
 };

@@ -12,8 +12,9 @@ export default ({ password }) => {
 	};
 
 	const getMatchingClass = () => {
+		const index = strength;
 		if (strength in strengthMap) {
-			return strengthMap[strength];
+			return strengthMap[index];
 		}
 		return PasswordMeterCSS.invisible;
 	};

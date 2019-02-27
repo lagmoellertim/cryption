@@ -4,7 +4,7 @@ export const mapState = (state) => {
         hint: state.files.hint,
         mode: state.files.mode
     };
-}
+};
 
 export const mapDispatch = (dispatch) => {
     return {
