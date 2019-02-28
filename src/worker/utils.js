@@ -24,6 +24,21 @@ export function b64toBlob(b64Data, contentType, sliceSize) {
     return blob;
 }
 
+export function fileToArrayBuffer(file) {
+    return new Promise(function (resolve, reject) {
+        const reader = new FileReader()
+
+        reader.onerror = function onerror(ev) {
+            reject(ev.target.error)
+        }
+
+        reader.onload = function onload(ev) {
+            resolve(ev.target.result)
+        }
+
+        reader.readAsArrayBuffer(file)
+    })
+}
 
 export function base64ArrayBuffer(arrayBuffer) {
     var base64 = "";

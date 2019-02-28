@@ -1,10 +1,10 @@
 import JSZip from "jszip";
 import CryptoJS from "crypto-js";
-import fileToArrayBuffer from "file-to-array-buffer";
 import {
     b64toBlob,
     base64ArrayBuffer,
-    asyncForEach
+    asyncForEach,
+    fileToArrayBuffer
 } from "./utils";
 
 export const getSHA256 = async (value) => {

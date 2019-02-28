@@ -7,7 +7,6 @@
     "antd": "^3.13.2",
     "crypto-js": "^3.1.9-1",
     "file-saver": "^2.0.0",
-    "file-to-array-buffer": "^1.0.0",
     "jszip": "^3.1.5",
     "react": "^16.8.2",
     "react-app-rewired": "^2.1.0",
