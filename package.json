@@ -18,7 +18,8 @@
     "react-scripts": "2.1.5",
     "redux": "^4.0.1",
     "remote-redux-devtools": "^0.5.16",
-    "workerize-loader": "^1.0.4"
+    "workerize-loader": "^1.0.4",
+    "zxcvbn": "^4.4.2"
   },
   "scripts": {
     "start": "react-app-rewired start",

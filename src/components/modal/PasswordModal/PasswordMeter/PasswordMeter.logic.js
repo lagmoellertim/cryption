@@ -1,40 +1,18 @@
-export function scorePassword(value) {
-    var score = 0;
-    if (!value) {
-        return null;
-    }
+import zxcvbn from "zxcvbn";
 
-    // award every unique letter until 5 repetitions
-    var letters = {};
-    for (var i = 0; i < value.length; i++) {
-        letters[value[i]] = (letters[value[i]] || 0) + 1;
-        score += 5.0 / letters[value[i]];
-    }
-
-    // bonus points for mixing it up
-    var variations = {
-        digits: /\d/.test(value),
-        lower: /[a-z]/.test(value),
-        upper: /[A-Z]/.test(value),
-        nonWords: /\W/.test(value),
+export const scorePassword = (password) => {
+    const mapValueToName = {
+        0: "bad",
+        1: "weak",
+        2: "good",
+        3: "strong",
+        4: "epic"
     };
 
-    let variationCount = 0;
-
-    for (var check in variations) {
-        variationCount += (variations[check] === true) ? 1 : 0;
+    if (password === undefined) {
+        return "invisible";
     }
 
-    score += (variationCount - 1) * 10;
-
-    if (score > 80) {
-        return 2;
-    }
-    if (score > 60) {
-        return 1;
-    }
-    if (score >= 0) {
-        return 0;
-    }
-    return null;
+    const result = zxcvbn(password);
+    return mapValueToName[result.score];
 }
