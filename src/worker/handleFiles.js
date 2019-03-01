@@ -1,5 +1,8 @@
 import JSZip from "jszip";
 import CryptoJS from "crypto-js";
+import * as WebCryptoUtils from './webcrypto/webcrypto-utils'
+import * as WebCryptoLib from './webcrypto/webcrypto-lib'
+import WebCrypto from "./webcrypto/webcrypto"
 import {
     b64toBlob,
     base64ArrayBuffer,
@@ -17,7 +20,7 @@ export const checkCrypt = async (file) => {
         if (".meta" in zip.files) {
             var content = JSON.parse(await zip.file(".meta").async("string"));
             if ("crypt" in content) {
-                if (content["crypt"] === true) {
+                if (content["crypt"] === 2) {
                     return true;
                 }
             }
@@ -67,60 +70,91 @@ export const getKey = async (key) => {
 
 export const fileToData = async (file) => {
     var c = await fileToArrayBuffer(file);
-    return base64ArrayBuffer(c);
+    return c
 }
 
-export const encrypt = async (data, filename, key, hint) => {
-    var eKey = await getKey(key);
-    incrementProgress();
+export const encrypt = async (data, filename, password, hint) => {
+    const crypto = new WebCrypto({
+        generateCipherSettings: true
+    })
+    console.log(2)
 
-    var encrypted = await CryptoJS.AES.encrypt(data, eKey).toString();
+    await crypto.generateKey(password)
+
     incrementProgress();
-    var md5 = CryptoJS.MD5(data).toString();
-    incrementProgress();
-    var sha256HashEncrypted = await CryptoJS.AES.encrypt(await getSHA256(encrypted), eKey).toString();
-    var sha256HashUnencrypted = await CryptoJS.AES.encrypt(await getSHA256(data), eKey).toString();
-    incrementProgress();
-    const name = await CryptoJS.AES.encrypt(filename, eKey).toString();
-    incrementProgress();
+    console.log(1)
+
+    const encryptedData = await crypto.encrypt(data)
+    console.log(0)
+
+    var sha1 = await WebCryptoLib.sha1(data)
+    console.log(1)
+    const hashDataEncrypted = await crypto.encrypt(
+        await WebCryptoLib.sha256(encryptedData, "none"),
+        "base64"
+    )
+    console.log(2)
+
+    const hashDataUnencrypted = await crypto.encrypt(
+        await WebCryptoLib.sha256(data, "none"),
+        "base64"
+    )
+    console.log(3)
+
+    const encryptedFilename = await crypto.encrypt(
+        WebCryptoUtils.strToBuf(filename),
+        "base64"
+    )
+
     var metadata = {
         hint: hint != null ? hint : "",
-        filename: name,
-        crypt: true,
-        sha256Before: sha256HashUnencrypted,
-        sha256After: sha256HashEncrypted
+        filename: encryptedFilename,
+        crypt: 2,
+        hashDataEncrypted,
+        hashDataUnencrypted,
+        cipherSettings: crypto.getCipherSettings()
     };
-
-    incrementProgress();
 
     var zip = new JSZip();
     zip.file(".meta", JSON.stringify(metadata));
 
-    zip.file("file", encrypted, {
-        base64: true
+    zip.file("file", encryptedData, {
+        binary: true
     });
 
     var newZip = await zip.generateAsync({
         type: "blob"
     });
 
-    incrementProgress();
+    //     // // incrementProgress();
 
     return {
         file: newZip,
-        name: md5 + ".cryption"
+        name: sha1 + ".cryption"
     };
 }
 
-export const decrypt = async (file, key) => {
-    var eKey = await getKey(key);
-    incrementProgress();
+export const decrypt = async (file, password) => {
+
+
+    //let dec = await decrypt(enc, key, iv, mode)
+    // incrementProgress();
     var zip = await JSZip.loadAsync(file);
     var metadata = JSON.parse(await zip.file(".meta").async("string"));
-    var content = await zip.file("file").async("base64");
-    incrementProgress();
+
+    const crypto = new WebCrypto({
+        ...metadata.cipherSettings,
+        decoding: "base64"
+    })
+
+    await crypto.generateKey(password)
+
+    var data = await zip.file("file").async("arraybuffer");
+
+    let decryptedData;
+
     try {
-        var decrypted = await CryptoJS.AES.decrypt(content, eKey).toString(CryptoJS.enc.Utf8);
+        decryptedData = await crypto.decrypt(data)
     } catch {
         return {
             file: null,
@@ -128,28 +162,38 @@ export const decrypt = async (file, key) => {
             name: null
         };
     }
-    incrementProgress();
-    var sha256HashEncrypted = await getSHA256(content);
-    var sha256HashUnencrypted = await getSHA256(decrypted);
-    incrementProgress();
-    if (await CryptoJS.AES.decrypt(metadata.sha256Before, eKey).toString(CryptoJS.enc.Utf8) === sha256HashUnencrypted && await CryptoJS.AES.decrypt(metadata.sha256After, eKey).toString(CryptoJS.enc.Utf8) === sha256HashEncrypted) {
-        incrementProgress();
-        var name = await CryptoJS.AES.decrypt(metadata.filename, eKey).toString(CryptoJS.enc.Utf8);
-        incrementProgress();
-        var blob = b64toBlob(decrypted);
+
+
+
+    // incrementProgress();
+    const hashDataEncrypted = await WebCryptoLib.sha256(data, "base64")
+    const hashDataUnencrypted = await WebCryptoLib.sha256(decryptedData, "base64")
+
+    const hashDataEncryptedInitial = await crypto.decrypt(WebCryptoUtils.b64ToBuf(metadata.hashDataEncrypted), "base64")
+    const hashDataUnencryptedInitial = await crypto.decrypt(WebCryptoUtils.b64ToBuf(metadata.hashDataUnencrypted), "base64")
+
+
+    if (hashDataEncrypted === hashDataEncryptedInitial && hashDataUnencrypted === hashDataUnencryptedInitial) {
+
+        var name = await crypto.decrypt(WebCryptoUtils.b64ToBuf(metadata.filename), "string")
+
+        // incrementProgress();
+        var blob = new Blob([decryptedData]);
         var blobUrl = URL.createObjectURL(blob);
-        incrementProgress();
+        // incrementProgress();
         return {
             file: blobUrl,
             error: null,
             name
         };
+
     }
     return {
         file: null,
         error: "no-integrity",
         name: null
     };
+
 }
 
 export const getHint = async (file) => {

@@ -5,3 +5,5 @@ build/
 package-lock\.json
 
 build-zip/
+
+\.vscode/launch\.json
