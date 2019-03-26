@@ -24,9 +24,12 @@ const FileSelect = (props) => {
 						<h1 className="ant-upload-drag-icon icon">
 							<Icon type="inbox" />
 						</h1>
-						<p className="ant-upload-text">Click or drag file to this area to upload</p>
+						<p className="ant-upload-text">Click here or drag a file to this area to encrypt</p>
 						<p className={FileSelectCSS.smallerfont + " ant-upload-hint"}>
-							Support for a single or bulk upload.
+							You can select or drag multiple files for batch encryption
+						</p>
+						<p className={FileSelectCSS.smallerfont + " ant-upload-hint"}>
+							(Your data won’t leave your browser.)
 						</p>
 					</div>
 				);
