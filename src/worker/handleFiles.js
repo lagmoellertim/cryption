@@ -1,6 +1,9 @@
 import JSZip from "jszip";
 import CryptoJS from "crypto-js";
-import * as WebCryptoUtils from './webcrypto/webcrypto-utils'
+import {
+    ConversionUtils,
+    HandlerU
+} from './utils/utils'
 import * as WebCryptoLib from './webcrypto/webcrypto-lib'
 import WebCrypto from "./webcrypto/webcrypto"
 import {
@@ -54,16 +57,6 @@ export const handleFiles = async (fileList) => {
     }
 }
 
-export const combineToZip = async (fileList) => {
-    var zip = new JSZip();
-    await asyncForEach(fileList, async (file) => {
-        zip.file(file.name, file);
-    });
-    return zip.generateAsync({
-        type: "base64"
-    });
-}
-
 export const getKey = async (key) => {
     return await getSHA256("cryption-" + key + "-cryption");
 }
@@ -102,7 +95,7 @@ export const encrypt = async (data, filename, password, hint) => {
     console.log(3)
 
     const encryptedFilename = await crypto.encrypt(
-        WebCryptoUtils.strToBuf(filename),
+        ConversionUtils.strToBuf(filename),
         "base64"
     )
 
@@ -169,13 +162,13 @@ export const decrypt = async (file, password) => {
     const hashDataEncrypted = await WebCryptoLib.sha256(data, "base64")
     const hashDataUnencrypted = await WebCryptoLib.sha256(decryptedData, "base64")
 
-    const hashDataEncryptedInitial = await crypto.decrypt(WebCryptoUtils.b64ToBuf(metadata.hashDataEncrypted), "base64")
-    const hashDataUnencryptedInitial = await crypto.decrypt(WebCryptoUtils.b64ToBuf(metadata.hashDataUnencrypted), "base64")
+    const hashDataEncryptedInitial = await crypto.decrypt(ConversionUtils.b64ToBuf(metadata.hashDataEncrypted), "base64")
+    const hashDataUnencryptedInitial = await crypto.decrypt(ConversionUtils.b64ToBuf(metadata.hashDataUnencrypted), "base64")
 
 
     if (hashDataEncrypted === hashDataEncryptedInitial && hashDataUnencrypted === hashDataUnencryptedInitial) {
 
-        var name = await crypto.decrypt(WebCryptoUtils.b64ToBuf(metadata.filename), "string")
+        var name = await crypto.decrypt(ConversionUtils.b64ToBuf(metadata.filename), "string")
 
         // incrementProgress();
         var blob = new Blob([decryptedData]);

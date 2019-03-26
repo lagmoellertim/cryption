@@ -1,4 +1,6 @@
-import * as WebCryptoUtils from "./webcrypto-utils"
+import {
+    ConversionUtils
+} from "../utils/utils"
 
 const crypto = self.crypto
 
@@ -27,7 +29,7 @@ export const encrypt = async (data, key, iv, encoding = "none") => {
         name: "AES-GCM"
     }, true, ["encrypt", "decrypt"])
 
-    return WebCryptoUtils.encodeBuffer(
+    return ConversionUtils.encodeBuffer(
         await crypto.subtle.encrypt({
             name: "AES-GCM",
             iv
@@ -41,7 +43,7 @@ export const decrypt = async (data, key, iv, encoding = "none") => {
     const bufKey = await crypto.subtle.importKey("raw", key, {
         name: "AES-GCM"
     }, true, ["encrypt", "decrypt"])
-    return WebCryptoUtils.encodeBuffer(
+    return ConversionUtils.encodeBuffer(
         await crypto.subtle.decrypt({
             name: "AES-GCM",
             iv
@@ -53,7 +55,7 @@ export const decrypt = async (data, key, iv, encoding = "none") => {
 // Different Hashing Methods
 const hash = async (data, algorithm, encoding = "hex") => {
     const hash = await crypto.subtle.digest(algorithm, data);
-    return WebCryptoUtils.encodeBuffer(hash, encoding)
+    return ConversionUtils.encodeBuffer(hash, encoding)
 }
 
 export const sha1 = async (data, encoding) => {

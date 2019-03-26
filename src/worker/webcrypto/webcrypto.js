@@ -1,5 +1,7 @@
 import * as WebCryptoLib from "./webcrypto-lib"
-import * as WebCryptoUtils from "./webcrypto-utils"
+import {
+    ConversionUtils
+} from "../utils/utils"
 
 const crypto = self.crypto
 
@@ -16,15 +18,15 @@ export default class WebCrypto {
             this.salt = crypto.getRandomValues(new Uint8Array(16));
             this.iterations = iterations;
         } else {
-            this.iv = WebCryptoUtils.decodeString(iv, decoding);
-            this.salt = WebCryptoUtils.decodeString(salt, decoding);
+            this.iv = ConversionUtils.decodeString(iv, decoding);
+            this.salt = ConversionUtils.decodeString(salt, decoding);
             this.iterations = iterations;
         }
         this.key = null
     }
 
     generateKey = async (password) => {
-        this.key = await WebCryptoLib.pbkdf2(WebCryptoUtils.strToBuf(password), this.salt, this.iterations)
+        this.key = await WebCryptoLib.pbkdf2(ConversionUtils.strToBuf(password), this.salt, this.iterations)
         return this.key
     }
 
@@ -38,8 +40,8 @@ export default class WebCrypto {
 
     getCipherSettings = () => {
         return {
-            iv: WebCryptoUtils.bufToB64(this.iv),
-            salt: WebCryptoUtils.bufToB64(this.salt),
+            iv: ConversionUtils.bufToB64(this.iv),
+            salt: ConversionUtils.bufToB64(this.salt),
             iterations: this.decrypt.iterations
         }
     }

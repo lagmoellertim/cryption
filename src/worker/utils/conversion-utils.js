@@ -54,3 +54,23 @@ export const b64ToBuf = b64 => {
     });
     return buf;
 }
+
+export const bufToBlob = (buf) => {
+    return new Blob([buf]);
+}
+
+export const fileToBuf = async (file) => {
+    return new Promise(function (resolve, reject) {
+        const reader = new FileReader()
+
+        reader.onerror = function onerror(ev) {
+            reject(ev.target.error)
+        }
+
+        reader.onload = function onload(ev) {
+            resolve(ev.target.result)
+        }
+
+        reader.readAsArrayBuffer(file)
+    })
+}
