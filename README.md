@@ -90,7 +90,7 @@ If you are missing a feature or have new idea, go for it! That is what open-sour
 
 ## Donate
 
-You can also contribute by [buying me a coffee](http://donate.lagmoellertim.de).
+You can also contribute by [buying me a coffee](https://www.buymeacoffee.com/lagmoellertim).
 
 ## License
 
