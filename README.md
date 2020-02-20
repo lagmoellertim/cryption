@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://cryption.pw">Website</a>
+  <a href="https://lagmoellertim.de/cryption/">Website</a>
 </p>
 
 ---
